@@ -2,7 +2,7 @@
   <header class="site-header" :class="{ scrolled: isScrolled, 'menu-open': mobileOpen }">
     <div class="header-inner container">
       <router-link to="/" class="brand-link" @click="closeMenu">
-        <img src="/src/assets/logo-lma.jpeg" alt="LMA Services B.V." class="site-logo" />
+        <img src="https://s3.us-east-1.amazonaws.com/arxgroup.sites/logo-lma.jpeg" alt="LMA Services B.V." class="site-logo" />
       </router-link>
 
       <button
