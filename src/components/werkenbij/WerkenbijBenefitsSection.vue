@@ -1,106 +1,88 @@
 <template>
-  <section class="werkenbij-benefits">
-    <h2>Waarom voor LMA Services kiezen?</h2>
-    <p class="section-intro">Wij zoeken gemotiveerde medewerkers die deel willen uitmaken van een professioneel team.</p>
-    
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <div class="benefit-icon">⏰</div>
-        <h3>Flexibele Werktijden</h3>
-        <p>Werk wanneer het jou uitkomt, afgestemd op je eigen schema</p>
+  <section class="werkenbij-benefits section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <p class="eyebrow">Waarom LMA Services</p>
+        <h2 class="section-title">Goed werkgeverschap</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">Wij zoeken gemotiveerde mensen die trots zijn op hun werk. Dit bieden wij u in ruil.</p>
       </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">📚</div>
-        <h3>Training & Scholing</h3>
-        <p>Wij bieden gratis training en professionele ontwikkelingskansen</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">📈</div>
-        <h3>Groei Mogelijkheden</h3>
-        <p>Ruimte voor persoonlijke groei en doorgroeimogelijkheden</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">💰</div>
-        <h3>Competitief Salaris</h3>
-        <p>Marktconforme beloning en sociale zekerheid</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">👥</div>
-        <h3>Fijn Team</h3>
-        <p>Werk in een ondersteunend team met open communicatie</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">🌟</div>
-        <h3>Waardering</h3>
-        <p>Waardering voor goed werk en betrokkenheid</p>
+
+      <div class="benefits-grid">
+        <div
+          v-for="(b, idx) in benefits"
+          :key="idx"
+          class="benefit-card neu-card"
+          data-aos="fade-up"
+          :data-delay="idx * 100"
+        >
+          <div class="icon-box icon-box-lg">
+            <span v-html="b.icon"></span>
+          </div>
+          <h3>{{ b.title }}</h3>
+          <p>{{ b.text }}</p>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
+<script setup lang="ts">
+const benefits = [
+  {
+    title: 'Flexibele Werktijden',
+    text: 'Werk wanneer het u uitkomt, afgestemd op uw eigen schema en privésituatie.',
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`
+  },
+  {
+    title: 'Training & Scholing',
+    text: 'Gratis training en professionele ontwikkelingsmogelijkheden voor iedere medewerker.',
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>`
+  },
+  {
+    title: 'Doorgroeimogelijkheden',
+    text: 'Ruimte voor persoonlijke groei en doorstroom naar leidinggevende functies.',
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>`
+  },
+  {
+    title: 'Marktconform Salaris',
+    text: 'Competitieve beloning, sociale zekerheid en correcte uitbetaling op tijd.',
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`
+  },
+  {
+    title: 'Fijn Team & Sfeer',
+    text: 'Werk in een ondersteunend team met open communicatie en collegiale sfeer.',
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>`
+  },
+  {
+    title: 'Waardering & Erkenning',
+    text: 'Wij waarderen goed werk en betrokkenheid met echte erkenning en feedback.',
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`
+  }
+]
+</script>
+
 <style scoped>
-.werkenbij-benefits {
-  padding: 3rem 0;
-}
-
-.werkenbij-benefits h2 {
-  margin: 0 0 1rem;
-  text-align: center;
-  font-size: 2rem;
-  color: var(--dark-text);
-}
-
-.section-intro {
-  text-align: center;
-  color: var(--text-light);
-  margin: 0 auto 3rem;
-  max-width: 50rem;
-}
+.werkenbij-benefits { background: var(--neu-bg); }
 
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .benefit-card {
-  background: white;
-  border-radius: 12px;
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.benefit-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(31, 164, 191, 0.12);
-}
-
-.benefit-icon {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  gap: 0.75rem;
 }
 
-.benefit-card h3 {
-  margin: 0 0 0.75rem;
-  color: var(--dark-text);
-}
+.benefit-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark-text); }
+.benefit-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; margin: 0; }
 
-.benefit-card p {
-  margin: 0;
-  color: var(--text-light);
-  line-height: 1.6;
-}
-
-@media (max-width: 1024px) {
-  .benefits-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 720px) {
-  .benefits-grid { grid-template-columns: 1fr; }
-}
+@media (max-width: 900px) { .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .benefits-grid { grid-template-columns: 1fr; } }
 </style>

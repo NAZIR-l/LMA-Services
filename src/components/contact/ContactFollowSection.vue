@@ -1,18 +1,44 @@
 <template>
-  <div class="contact-follow text-center">
-    <h2>Volg ons</h2>
-    <p>Blijf op de hoogte van onze projecten en tips voor een frisse werkplek.</p>
-    <div class="social-icons">
-      <a href="#instagram" class="social-link">Instagram</a>
-      <a href="#facebook" class="social-link">Facebook</a>
-      <a href="#linkedin" class="social-link">LinkedIn</a>
+  <div class="contact-follow">
+    <p class="eyebrow">Sociale media</p>
+    <h3>Volg ons</h3>
+    <p>Blijf op de hoogte van onze projecten, tips en nieuws.</p>
+    <div class="social-row">
+      <a href="#" class="social-btn" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Instagram
+      </a>
+      <a href="#" class="social-btn" aria-label="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="#" class="social-btn" aria-label="Facebook">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        Facebook
+      </a>
     </div>
   </div>
 </template>
 
 <style scoped>
-.contact-follow { margin-top: 1.25rem; }
-.social-icons { display:flex; justify-content:center; gap:1rem; margin-top:1rem; }
-.social-link { display:inline-flex; padding:0.6rem 1rem; background:var(--primary-teal); color:white; border-radius:999px; text-decoration:none; }
-.social-link:hover { background:var(--dark-teal); }
+.contact-follow { display: flex; flex-direction: column; gap: 0.6rem; }
+.contact-follow h3 { font-size: 1.1rem; color: var(--dark-text); }
+.contact-follow p { font-size: 0.9rem; color: var(--text-light); }
+
+.social-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.25rem; }
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  background: var(--light-teal);
+  color: var(--dark-teal);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.22s ease, transform 0.22s ease;
+}
+.social-btn:hover { background: var(--primary-teal); color: white; transform: translateY(-2px); }
 </style>

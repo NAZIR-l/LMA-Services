@@ -1,19 +1,38 @@
 <template>
-  <section class="home-approach">
+  <section class="home-approach section">
     <div class="container">
-      <div class="section-header">
-        <h2>Onze werkwijze</h2>
-        <p>Eenvoudige stappen om snel en betrouwbaar met ons te werken.</p>
-      </div>
+      <div class="approach-inner">
+        <!-- Left: heading -->
+        <div class="approach-header" data-aos="fade-right">
+          <p class="eyebrow">Hoe wij werken</p>
+          <h2 class="section-title">Onze werkwijze</h2>
+          <div class="divider divider-left"></div>
+          <p class="section-subtitle">In 4 eenvoudige stappen werkt u samen met LMA Services voor een schone, veilige werkomgeving.</p>
+          <router-link to="/offerte-aanvragen" class="btn btn-primary mt-btn">
+            Start vandaag nog
+          </router-link>
+        </div>
 
-      <div class="method-steps">
-        <article class="step-card" v-for="(step, idx) in steps" :key="idx">
-          <div class="step-top">
-            <div class="step-number">{{ idx + 1 }}</div>
+        <!-- Right: steps -->
+        <div class="steps-grid">
+          <div
+            v-for="(step, idx) in steps"
+            :key="idx"
+            class="step-card neu-card"
+            data-aos="fade-up"
+            :data-delay="idx * 100 + 100"
+          >
+            <div class="step-header">
+              <div class="step-num">{{ String(idx + 1).padStart(2, '0') }}</div>
+              <div class="step-connector" v-if="idx < steps.length - 1"></div>
+            </div>
+            <div class="step-icon-wrap">
+              <div class="icon-box" v-html="step.icon"></div>
+            </div>
             <h3>{{ step.title }}</h3>
+            <p>{{ step.text }}</p>
           </div>
-          <p>{{ step.text }}</p>
-        </article>
+        </div>
       </div>
     </div>
   </section>
@@ -21,22 +40,95 @@
 
 <script setup lang="ts">
 const steps = [
-  { title: 'Analyse van uw ruimte', text: 'We brengen uw specifieke schoonmaakbehoeften en prioriteiten in kaart.' },
-  { title: 'Plan op maat', text: 'Wij stellen een flexibel schema op, afgestemd op uw activiteiten en openingstijden.' },
-  { title: 'Professionele uitvoering', text: 'Gecertificeerde teams werken snel en discreet met duurzame middelen.' },
-  { title: 'Nazorg & communicatie', text: 'Regelmatige controles en directe communicatie bij feedback of wijzigingen.' }
+  {
+    title: 'Analyse van uw ruimte',
+    text: 'We brengen uw specifieke schoonmaakbehoeften en prioriteiten in kaart via een gratis locatiebezoek.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg>`
+  },
+  {
+    title: 'Flexibel schema op maat',
+    text: 'Wij stellen een programma op dat past bij uw activiteiten, openingstijden en budget.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>`
+  },
+  {
+    title: 'Professionele uitvoering',
+    text: 'Getraind personeel met gecertificeerde producten werkt snel, discreet en effectief.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`
+  },
+  {
+    title: 'Directe communicatie',
+    text: 'Altijd bereikbaar voor vragen en aanpassingen. Regelmatige kwaliteitscontroles inbegrepen.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`
+  }
 ]
 </script>
 
 <style scoped>
-.home-approach { padding: 5rem 0; }
-.method-steps { display:grid; gap:1.25rem; grid-template-columns: repeat(4, 1fr); }
-.step-card { background: linear-gradient(180deg,#fff,#f8ffff); border-radius:14px; padding:1.25rem; box-shadow:0 12px 30px rgba(16,24,40,0.06); }
-.step-top { display:flex; align-items:center; gap:1rem; margin-bottom:0.5rem; }
-.step-number { width:48px; height:48px; border-radius:12px; background:var(--primary-teal); color:white; display:inline-flex; align-items:center; justify-content:center; font-weight:700; }
-.step-card h3 { margin:0; font-size:1.05rem; color:var(--dark-text); }
-.step-card p { margin:0; color:var(--text-light); line-height:1.6; }
+.home-approach { background: var(--white); }
 
-@media (max-width:1024px){ .method-steps { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width:720px){ .method-steps { grid-template-columns: 1fr; } }
+.approach-inner {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.mt-btn { margin-top: 2rem; }
+
+/* Steps grid */
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.step-card {
+  padding: 1.75rem;
+  position: relative;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.step-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--primary-teal);
+  background: var(--light-teal);
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+}
+
+.step-icon-wrap {
+  margin-bottom: 1rem;
+}
+
+.step-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark-text);
+}
+
+.step-card p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .approach-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .approach-header { max-width: 500px; }
+}
+
+@media (max-width: 640px) {
+  .steps-grid { grid-template-columns: 1fr; }
+}
 </style>

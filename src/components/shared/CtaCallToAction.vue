@@ -1,82 +1,79 @@
 <template>
-  <section class="cta-section">
-    <div class="container cta-content">
-      <h2>{{ title }}</h2>
-      <p>{{ subtitle }}</p>
-      <router-link :to="buttonLink" class="btn btn-primary btn-lg">{{ buttonText }}</router-link>
+  <section class="cta-section section-teal">
+    <div class="cta-arc-1"></div>
+    <div class="cta-arc-2"></div>
+    <div class="container cta-inner">
+      <div class="cta-text" data-aos="fade-right">
+        <p class="eyebrow eyebrow-white">Aan de slag</p>
+        <h2>{{ title }}</h2>
+        <p class="cta-sub">{{ subtitle }}</p>
+      </div>
+      <router-link :to="buttonLink" class="btn btn-white btn-lg cta-btn" data-aos="scale-up" data-delay="200">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        {{ buttonText }}
+      </router-link>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
 defineProps({
-  title: {
-    type: String,
-    default: 'Geïnteresseerd?'
-  },
-  subtitle: {
-    type: String,
-    default: 'Neem vandaag contact op voor meer informatie.'
-  },
-  buttonText: {
-    type: String,
-    default: 'Offerte aanvragen'
-  },
-  buttonLink: {
-    type: String,
-    default: '/offerte-aanvragen'
-  }
+  title: { type: String, default: 'Geïnteresseerd?' },
+  subtitle: { type: String, default: 'Neem vandaag contact op voor meer informatie.' },
+  buttonText: { type: String, default: 'Offerte aanvragen' },
+  buttonLink: { type: String, default: '/offerte-aanvragen' }
 })
 </script>
 
 <style scoped>
 .cta-section {
-  background: linear-gradient(135deg, rgba(31, 164, 191, 0.95) 0%, rgba(14, 127, 153, 0.95) 100%);
-  padding: 4rem 0;
-  color: white;
-  text-align: center;
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
-.cta-content h2 {
-  margin: 0 0 1rem;
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+.cta-arc-1, .cta-arc-2 {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.07);
+  pointer-events: none;
 }
+.cta-arc-1 { width: 350px; height: 350px; right: -80px; top: -150px; }
+.cta-arc-2 { width: 200px; height: 200px; left: -60px; bottom: -80px; border-color: rgba(255,255,255,0.05); }
 
-.cta-content p {
-  margin: 0 0 2rem;
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.92);
-  max-width: 50rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.btn {
-  display: inline-flex;
+.cta-inner {
+  display: grid;
+  grid-template-columns: 1.3fr auto;
+  gap: 3rem;
   align-items: center;
-  justify-content: center;
-  padding: 1rem 2.2rem;
-  border-radius: 999px;
-  font-weight: 700;
-  text-decoration: none;
-  border: 1px solid transparent;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
-  cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
-.btn-primary {
-  background: white;
-  color: var(--primary-teal);
-  border-color: white;
+.cta-text h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: white;
+  margin: 0.5rem 0 0.75rem;
 }
 
-.btn-primary:hover {
-  background: rgba(255, 255, 255, 0.95);
-  transform: translateY(-2px);
+.cta-sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.8;
+  max-width: 52ch;
+  margin: 0;
 }
 
-@media (max-width: 720px) {
-  .cta-section { padding: 3rem 0; }
-  .cta-content p { font-size: 1rem; }
+.cta-btn {
+  flex-shrink: 0;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+}
+
+@media (max-width: 860px) {
+  .cta-inner { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+  .cta-sub { margin: 0 auto; }
+  .cta-btn { align-self: center; }
+  .cta-section { padding: 4rem 0; }
 }
 </style>

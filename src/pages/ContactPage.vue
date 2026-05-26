@@ -2,22 +2,21 @@
   <div class="page-contact">
     <ContactHeroSection />
 
-    <section class="section section-light">
+    <section class="section section-neu">
       <div class="container contact-main">
-        <ContactInfoSection />
-        <ContactFormSection />
+        <div class="contact-left" data-aos="fade-right">
+          <ContactInfoSection />
+          <ContactFollowSection style="margin-top: 2rem;" />
+        </div>
+        <div data-aos="fade-left" data-delay="150">
+          <ContactFormSection />
+        </div>
       </div>
     </section>
 
-    <section class="section section-gray">
+    <section class="section section-light">
       <div class="container">
         <ContactMapSection />
-      </div>
-    </section>
-
-    <section class="section section-light">
-      <div class="container text-center">
-        <ContactFollowSection />
       </div>
     </section>
 
@@ -64,9 +63,11 @@ const submitContactForm = () => {
 
 .contact-main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.3fr;
   gap: 3rem;
+  align-items: start;
 }
+.contact-left { display: flex; flex-direction: column; }
 
 .contact-info-section h2,
 .contact-form h2 {

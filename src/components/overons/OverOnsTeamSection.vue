@@ -1,93 +1,76 @@
 <template>
-  <section class="team-section">
-    <div class="team-grid">
-      <div class="team-content">
-        <h2>Ons Team & Bereik</h2>
-        <p>Ons team bestaat uit getrainde medewerkers die flexibel inzetbaar zijn in heel Nederland. We hechten veel waarde aan opleiding, professionaliteit en het persoonlijke contact met onze klanten.</p>
-        <ul class="team-points">
-          <li>Gespecialiseerde teams per dienst</li>
-          <li>Regelmatige trainingen en scholing</li>
-          <li>Landelijke dekking met lokale teams</li>
-          <li>24/7 bereikbaarheid voor klanten</li>
-        </ul>
-      </div>
-          <div class="team-image">
+  <section class="team-section section-neu section">
+    <div class="container">
+      <div class="team-grid">
+        <div class="team-visual" data-aos="fade-right">
+          <div class="team-image-frame">
             <img :src="teamImg" alt="LMA Services Team" />
           </div>
+        </div>
+
+        <div class="team-content" data-aos="fade-left" data-delay="150">
+          <p class="eyebrow">Ons team</p>
+          <h2 class="section-title">Getraind voor elke uitdaging</h2>
+          <div class="divider divider-left"></div>
+          <p style="color: var(--text-light); line-height: 1.85; margin-bottom: 1.75rem;">
+            Ons team bestaat uit getrainde medewerkers die flexibel inzetbaar zijn in heel Nederland. We hechten veel waarde aan opleiding, professionaliteit en het persoonlijke contact met onze klanten.
+          </p>
+          <ul class="check-list">
+            <li>Gespecialiseerde teams per dienst</li>
+            <li>Regelmatige trainingen en bijscholing</li>
+            <li>Landelijke dekking met lokale teams</li>
+            <li>Bereikbaar ma–vr 08:00–18:00</li>
+          </ul>
+
+          <div class="team-cta">
+            <router-link to="/offerte-aanvragen" class="btn btn-primary">Offerte aanvragen</router-link>
+            <router-link to="/werken-bij" class="btn btn-outline">Kom bij ons werken</router-link>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
-    <script setup lang="ts">
-    import teamImg from '../../assets/eilo-employee.png'
-    </script>
+<script setup lang="ts">
+import teamImg from '../../assets/eilo-employee.png'
+</script>
 
-    <style scoped>
-.team-section {
-  padding: 3rem 0;
-  background: rgba(31, 164, 191, 0.04);
-  border-radius: 16px;
-  margin-top: 2rem;
-}
+<style scoped>
+.team-section { }
 
 .team-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 4rem;
   align-items: center;
 }
 
-.team-content h2 {
-  margin: 0 0 1rem;
-  font-size: 2rem;
-  color: var(--dark-text);
-}
-
-.team-content p {
-  margin: 0 0 1.5rem;
-  color: var(--text-light);
-  line-height: 1.8;
-}
-
-.team-points {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.team-points li {
-  margin-bottom: 0.85rem;
-  padding-left: 1.5rem;
-  position: relative;
-  color: var(--text-light);
-  line-height: 1.7;
-}
-
-.team-points li::before {
-  content: "►";
-  position: absolute;
-  left: 0;
-  color: var(--primary-teal);
-  font-size: 0.7rem;
-}
-
-.team-image {
-  border-radius: 12px;
+.team-image-frame {
+  border-radius: 24px;
   overflow: hidden;
+  box-shadow: 16px 16px 40px rgba(0,0,0,0.1), -8px -8px 24px rgba(255,255,255,0.85);
 }
 
-.team-image img {
+.team-image-frame img {
   width: 100%;
-  height: 100%;
+  height: 440px;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s ease;
+}
+.team-image-frame:hover img { transform: scale(1.03); }
+
+.team-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 @media (max-width: 1024px) {
   .team-grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 720px) {
-  .team-section { padding: 2rem 1.5rem; margin-top: 1rem; }
+  .team-visual { order: -1; }
+  .team-image-frame img { height: 320px; }
 }
 </style>

@@ -2,16 +2,44 @@
   <div class="page-offerte">
     <OfferteHeroSection />
 
-    <section class="section section-light">
-      <div class="container">
-        <OfferteInfoSection />
-        <OfferteFormSection />
+    <section class="section section-neu">
+      <div class="container offerte-layout">
+        <!-- Side info -->
+        <div class="offerte-sidebar" data-aos="fade-right">
+          <div class="sidebar-card neu-card">
+            <p class="eyebrow">Waarom kiezen voor LMA?</p>
+            <h3>Uw voordelen</h3>
+            <ul class="check-list">
+              <li>Maatwerk oplossing voor uw behoeften</li>
+              <li>Transparante prijzen zonder verrassingen</li>
+              <li>Persoonlijk contact met ons team</li>
+              <li>Vrijblijvende offerte, geen verplichtingen</li>
+              <li>Respons gegarandeerd binnen 24 uur</li>
+              <li>Gecertificeerde producten en methoden</li>
+              <li>Actief in heel Nederland</li>
+            </ul>
+          </div>
+
+          <div class="contact-alt neu-card">
+            <h4>Liever bellen?</h4>
+            <a href="tel:+31628589077" class="big-phone">+31 628 589 077</a>
+            <p>Bereikbaar ma–vr 08:00–18:00</p>
+            <a href="mailto:info@lmaschoonmaken.nl" class="btn btn-outline btn-sm" style="margin-top: 0.75rem;">
+              info@lmaschoonmaken.nl
+            </a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="offerte-main" data-aos="fade-left" data-delay="150">
+          <OfferteFormSection />
+        </div>
       </div>
     </section>
 
     <CtaCallToAction
-      title="Liever direct contact?"
-      subtitle="U kunt ons natuurlijk ook bereiken via telefoon of e-mail."
+      title="Nog vragen voor de offerte?"
+      subtitle="Neem direct contact op — wij helpen u graag."
       buttonText="Contact opnemen"
       buttonLink="/contact"
     />
@@ -19,172 +47,34 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import OfferteHeroSection from '../components/offerte/OfferteHeroSection.vue'
-import OfferteInfoSection from '../components/offerte/OfferteInfoSection.vue'
 import OfferteFormSection from '../components/offerte/OfferteFormSection.vue'
 import CtaCallToAction from '../components/shared/CtaCallToAction.vue'
-
-const form = ref({
-  naam: '',
-  bedrijf: '',
-  email: '',
-  telefoon: '',
-  dienst: '',
-  beschrijving: '',
-  voorkeursdatum: ''
-})
-
-const submitForm = () => {
-  console.log('Form submitted:', form.value)
-  alert('Dank u! We nemen contact met u op binnen 24 uur.')
-  form.value = {
-    naam: '',
-    bedrijf: '',
-    email: '',
-    telefoon: '',
-    dienst: '',
-    beschrijving: '',
-    voorkeursdatum: ''
-  }
-}
 </script>
 
 <style scoped>
 .page-offerte { width: 100%; }
-.container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; }
 
-.form-intro {
-  margin-bottom: 2rem;
-}
-
-.section-label {
-  display: inline-block;
-  margin-bottom: 1rem;
-  color: var(--primary-teal);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.85rem;
-}
-
-.form-intro h2 {
-  margin: 0 0 0.75rem;
-  font-size: clamp(2rem, 3vw, 2.6rem);
-  color: var(--dark-text);
-}
-
-.form-intro p {
-  margin: 0;
-  max-width: 48rem;
-  color: var(--text-light);
-}
-
-.trust-badges {
+.offerte-layout {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
+  grid-template-columns: 340px 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-.trust-card {
-  padding: 1.5rem;
-  border-radius: 16px;
-  background: #f5fdff;
-  color: var(--dark-text);
-  border: 1px solid rgba(31, 164, 191, 0.14);
-  font-weight: 600;
-  text-align: center;
-}
+.offerte-sidebar { display: flex; flex-direction: column; gap: 1.5rem; position: sticky; top: 90px; }
 
-.quote-form {
-  margin-top: 2rem;
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.04);
-}
+.sidebar-card { padding: 2rem; }
+.sidebar-card h3 { font-size: 1.2rem; margin-bottom: 1.25rem; }
 
-.quote-form h2 {
-  margin: 0 0 1.5rem;
-  color: var(--dark-text);
-}
+.contact-alt { padding: 1.75rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.contact-alt h4 { font-size: 1rem; color: var(--dark-text); margin: 0; }
+.big-phone { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--primary-teal); text-decoration: none; }
+.big-phone:hover { color: var(--dark-teal); }
+.contact-alt p { font-size: 0.82rem; color: var(--text-muted); margin: 0; }
 
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group.full-width {
-  grid-column: 1 / -1;
-}
-
-.form-group label {
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: var(--dark-text);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  padding: 0.8rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  font-family: inherit;
-  font-size: 1rem;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--primary-teal);
-  box-shadow: 0 0 0 3px rgba(31, 164, 191, 0.1);
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2.2rem;
-  border-radius: 999px;
-  font-weight: 700;
-  text-decoration: none;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.btn-primary {
-  background: var(--primary-teal);
-  color: white;
-}
-
-.btn-primary:hover {
-  background: var(--dark-teal);
-}
-
-.btn-lg {
-  padding: 1rem 2.2rem;
-  font-size: 1rem;
-}
-
-.form-note {
-  font-size: 0.9rem;
-  color: #64748b;
-  margin-top: 1rem;
-}
-
-@media (max-width: 720px) {
-  .form-grid { grid-template-columns: 1fr; }
-  .trust-badges { grid-template-columns: 1fr; }
+@media (max-width: 1024px) {
+  .offerte-layout { grid-template-columns: 1fr; }
+  .offerte-sidebar { position: static; }
 }
 </style>
