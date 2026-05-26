@@ -2,12 +2,6 @@
   <section class="team-section section-neu section">
     <div class="container">
       <div class="team-grid">
-        <div class="team-visual" data-aos="fade-right">
-          <div class="team-image-frame">
-            <img :src="teamImg" alt="LMA Services Team" />
-          </div>
-        </div>
-
         <div class="team-content" data-aos="fade-left" data-delay="150">
           <p class="eyebrow">Ons team</p>
           <h2 class="section-title">Getraind voor elke uitdaging</h2>
@@ -41,7 +35,7 @@ import teamImg from '../../assets/eilo-employee.png'
 
 .team-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
   gap: 4rem;
   align-items: center;
 }

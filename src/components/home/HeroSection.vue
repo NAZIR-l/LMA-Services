@@ -8,10 +8,7 @@
     <div class="hero-inner container">
       <!-- Left: text content -->
       <div class="hero-left">
-        <div class="hero-badge">
-          <span class="badge-dot"></span>
-          Actief in heel Nederland
-        </div>
+ 
 
         <h1 class="hero-heading">
           Uw Specialist in<br />
@@ -44,15 +41,7 @@
         <div class="hero-image-wrap">
           <img class="hero-photo" :src="heroImg" alt="LMA Services schoonmaakteam" />
           <!-- Floating badge cards -->
-          <div class="hero-float-card card-top">
-            <div class="float-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            </div>
-            <div class="float-text">
-              <strong>Gecertificeerd</strong>
-              <span>Producten &amp; methoden</span>
-            </div>
-          </div>
+
           <div class="hero-float-card card-bottom">
             <div class="float-icon float-icon-teal">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
