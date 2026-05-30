@@ -19,14 +19,35 @@
 
       <div v-if="mobileOpen" class="nav-overlay" @click="closeMenu" aria-hidden="true"></div>
 
-      <nav class="site-nav" :class="{ open: mobileOpen }" role="navigation">
-        <router-link v-for="link in navLinks" :key="link.to" :to="link.to" class="nav-link" @click="closeMenu">
-          {{ link.label }}
-        </router-link>
-        <router-link to="/offerte-aanvragen" class="nav-link nav-cta" @click="closeMenu">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Offerte aanvragen
-        </router-link>
+      <nav class="site-nav" :class="{ open: mobileOpen }" role="navigation" aria-label="Hoofd navigatie">
+        <div class="nav-panel-header">
+          <div class="brand-mobile">
+            <img src="/src/assets/logo-lma.jpeg" alt="LMA Services" class="site-logo mobile" />
+            <div>
+              <strong>Menu</strong>
+              <p>Direct naar de belangrijkste pagina&apos;s</p>
+            </div>
+          </div>
+
+          <button class="mobile-close" @click="closeMenu" aria-label="Sluit navigatie">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <div class="nav-panel-body">
+          <router-link v-for="link in navLinks" :key="link.to" :to="link.to" class="nav-link" @click="closeMenu">
+            {{ link.label }}
+          </router-link>
+          <router-link to="/offerte-aanvragen" class="nav-link nav-cta" @click="closeMenu">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Offerte aanvragen
+          </router-link>
+        </div>
+
+        <div class="nav-panel-footer">
+          <p>Vraag eenvoudig een offerte aan of neem contact op voor advies.</p>
+        </div>
       </nav>
     </div>
   </header>
@@ -135,8 +156,8 @@ onBeforeUnmount(() => {
 
 .nav-link.router-link-exact-active {
   color: var(--primary-teal);
-    background: inherit;
-    border-bottom: 3px solid rgb(29 152 178);
+  background: inherit;
+  border-bottom: 3px solid rgb(29 152 178);
 }
 
 .nav-cta {
@@ -156,6 +177,18 @@ onBeforeUnmount(() => {
 .nav-cta.router-link-exact-active {
   background: var(--dark-teal);
   color: white !important;
+}
+
+.nav-panel-header,
+.nav-panel-footer {
+  display: none;
+}
+
+.nav-panel-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 /* Mobile toggle */
@@ -202,34 +235,125 @@ onBeforeUnmount(() => {
     position: fixed;
     top: 0;
     right: 0;
-    bottom: 0;
-    width: min(320px, 85vw);
-    background: white;
+    left: auto;
+    width: min(340px, 88vw);
+    height: 100vh;
+    min-height: 100dvh;
+    background: radial-gradient(circle at top left, rgba(31, 164, 191, 0.08), transparent 35%),
+      linear-gradient(180deg, #ffffff 0%, #f9fcff 100%);
     flex-direction: column;
     align-items: stretch;
-    padding: 88px 1.25rem 2rem;
-    gap: 0.35rem;
-    z-index: 1000;
+    padding: 92px 1.5rem 1.5rem;
+    gap: 0.75rem;
+    z-index: 1100;
     transform: translateX(110%);
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: -8px 0 32px rgba(0,0,0,0.12);
+    box-shadow: -12px 0 36px rgba(12, 24, 58, 0.15);
     overflow-y: auto;
+    border-left: 1px solid rgba(31, 164, 191, 0.12);
   }
 
   .site-nav.open { transform: translateX(0); }
 
+  .nav-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .brand-mobile {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .site-logo.mobile {
+    height: 36px;
+    width: auto;
+  }
+
+  .brand-mobile strong {
+    display: block;
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .brand-mobile p {
+    margin: 0;
+    color: rgba(22, 33, 56, 0.72);
+    font-size: 0.88rem;
+  }
+
+  .mobile-close {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(31, 164, 191, 0.18);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .mobile-close:hover {
+    background: #eff8fb;
+    transform: scale(1.02);
+    border-color: rgba(31, 164, 191, 0.28);
+  }
+
+  .mobile-close span {
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background: var(--dark-text);
+    border-radius: 999px;
+  }
+
+  .mobile-close span:first-child { transform: rotate(45deg); }
+  .mobile-close span:last-child { transform: rotate(-45deg); }
+
+  .nav-panel-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 0.15rem;
+  }
+
   .nav-link {
     width: 100%;
     padding: 1rem 1.1rem;
-    border-radius: 14px;
+    border-radius: 16px;
     font-size: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid transparent;
+  }
+
+  .nav-link:hover {
+    background: rgba(31, 164, 191, 0.08);
   }
 
   .nav-cta {
     margin-left: 0;
     margin-top: 0.5rem;
-    padding: 1rem 1.1rem;
+    padding: 1rem 1.2rem;
     justify-content: center;
+  }
+
+  .nav-panel-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(31, 164, 191, 0.14);
+    color: rgba(22, 33, 56, 0.72);
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 }
 </style>
