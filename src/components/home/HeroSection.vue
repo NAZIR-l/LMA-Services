@@ -1,69 +1,68 @@
 <template>
   <section class="home-hero">
-    <!-- Decorative background arcs -->
-    <div class="hero-bg-arc arc-1"></div>
-    <div class="hero-bg-arc arc-2"></div>
-    <div class="hero-bg-arc arc-3"></div>
 
+    <!-- ── Swiper background slideshow ── -->
+    <div class="hero-swiper-wrap">
+      <swiper
+        :modules="modules"
+        :autoplay="{ delay: 4500, disableOnInteraction: false }"
+        :effect="'fade'"
+        :fade-effect="{ crossFade: true }"
+        :loop="true"
+        :speed="1200"
+        :pagination="{ clickable: true }"
+        class="hero-swiper"
+      >
+        <swiper-slide v-for="(slide, i) in slides" :key="i">
+          <div
+            class="slide-bg"
+            :style="{ backgroundImage: `url(${slide.img})` }"
+          ></div>
+          <!-- Per-slide overlay (slightly different tint per image) -->
+          <div class="slide-overlay"></div>
+        </swiper-slide>
+      </swiper>
+    </div>
+
+    <!-- ── Centered content (same pattern as all sections) ── -->
     <div class="hero-inner container">
 
-      <!-- ── Left: text ── -->
-      <div class="hero-left">
-        <h1 class="hero-heading">
-          Uw Specialist in<br />
-          <span class="heading-accent">Professionele</span><br />
-          Schoonmaakdiensten
-        </h1>
+      <!-- <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Professionele schoonmaakdiensten
+      </div> -->
 
-        <p class="hero-sub">
-          LMA Services B.V. — uw betrouwbare schoonmaakpartner. Van dagelijks
-          kantooronderhoud tot grootschalige evenementenreiniging.
-        </p>
+      <h1 class="hero-heading">
+        Uw Specialist in<br />
+        <span class="heading-accent">Professionele</span><br />
+        Schoonmaakdiensten
+      </h1>
 
-        <div class="hero-actions">
-          <router-link to="/offerte-aanvragen" class="btn btn-white btn-lg">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-            Vraag vrijblijvend offerte aan
-          </router-link>
-          <router-link to="/diensten" class="btn btn-white-outline btn-lg">
-            Onze diensten
-          </router-link>
-        </div>
+      <p class="hero-sub">
+        LMA Services B.V. — uw betrouwbare schoonmaakpartner. Van dagelijks
+        kantooronderhoud tot grootschalige evenementenreiniging.
+      </p>
 
-        <!-- Stats -->
-        <div class="hero-stats">
-          <div class="hero-stat" v-for="s in stats" :key="s.label">
-            <strong>{{ s.value }}</strong>
-            <span>{{ s.label }}</span>
-          </div>
+      <div class="hero-actions">
+        <router-link to="/offerte-aanvragen" class="hero-btn-primary">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          Vraag vrijblijvend offerte aan
+        </router-link>
+        <router-link to="/diensten" class="hero-btn-outline">
+          Onze diensten
+        </router-link>
+      </div>
+
+      <!-- Stats -->
+      <div class="hero-stats">
+        <div class="hero-stat" v-for="s in stats" :key="s.label">
+          <strong>{{ s.value }}</strong>
+          <span>{{ s.label }}</span>
         </div>
       </div>
 
-      <!-- ── Right: image ── -->
-      <div class="hero-right">
-        <div class="hero-image-wrap">
-          <img
-            class="hero-photo"
-            :src="heroImg"
-            alt="LMA Services schoonmaakteam"
-          />
-
-          <!-- Floating badge -->
-          <div class="hero-float-card">
-            <div class="float-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-            </div>
-            <div class="float-text">
-              <strong>Getraind personeel</strong>
-              <span>Direct inzetbaar</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Wave divider -->
@@ -76,7 +75,29 @@
 </template>
 
 <script setup lang="ts">
-const heroImg = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=85'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/effect-fade'
+import 'swiper/css/pagination'
+
+const modules = [Autoplay, EffectFade, Pagination]
+
+const slides = [
+ 
+  {
+    img: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=85',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1800&q=85',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=1800&q=85',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=1800&q=85',
+  },
+]
 
 const stats = [
   { value: '+500', label: 'Tevreden klanten' },
@@ -86,151 +107,226 @@ const stats = [
 </script>
 
 <style scoped>
-/* ── Section ──────────────────────────────────────────────── */
+/* ── Section shell ────────────────────────────────────────── */
 .home-hero {
-  background: linear-gradient(135deg, #1fa4bf 0%, #0a6a82 100%);
-  color: white;
   position: relative;
   overflow: hidden;
-  padding: 6rem 0 5rem;
-}
-
-/* ── Decorative arcs ──────────────────────────────────────── */
-.hero-bg-arc {
-  position: absolute;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.07);
-  pointer-events: none;
-}
-.arc-1 { width: 600px; height: 600px; right: -120px; top: -200px; animation: floatSlow 8s ease-in-out infinite; }
-.arc-2 { width: 420px; height: 420px; right: 60px;   top: -80px;  animation: floatSlow 10s 2s ease-in-out infinite reverse; border-color: rgba(255,255,255,0.05); }
-.arc-3 { width: 250px; height: 250px; left: -80px;   bottom: 60px; border-color: rgba(255,255,255,0.06); animation: floatSlow 12s 1s ease-in-out infinite; }
-
-/* ── Layout grid ──────────────────────────────────────────── */
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3rem;
+  min-height: 92vh;
+  display: flex;
   align-items: center;
+  color: white;
+}
+
+/* ── Swiper fills the entire background ───────────────────── */
+.hero-swiper-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+/* Each slide image */
+.slide-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.04);
+  animation: kenBurns 5s ease-out forwards;
+}
+
+/* Subtle Ken Burns zoom on each slide */
+@keyframes kenBurns {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1.0); }
+}
+
+/* Dark gradient overlay */
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 48, 62, 0.80) 0%,
+    rgba(8, 68, 86, 0.72) 55%,
+    rgba(8, 68, 86, 0.68) 100%
+  );
+}
+
+/* ── Swiper pagination dots ───────────────────────────────── */
+:deep(.swiper-pagination) {
+  bottom: 6rem;
+  z-index: 10;
+}
+
+:deep(.swiper-pagination-bullet) {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.45);
+  opacity: 1;
+  transition: width 0.3s ease, background 0.3s ease;
+  border-radius: 999px;
+}
+
+:deep(.swiper-pagination-bullet-active) {
+  width: 28px;
+  background: white;
+}
+
+/* ── Content — centered like all other sections ───────────── */
+.hero-inner {
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 8rem;
 }
 
-/* ── Left: text ───────────────────────────────────────────── */
+/* ── Badge ────────────────────────────────────────────────── */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.03em;
+  animation: heroSlideUp 0.6s 0.1s ease both;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #7effcc;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+/* ── Heading ──────────────────────────────────────────────── */
 .hero-heading {
-  font-size: clamp(2rem, 4.5vw, 4rem);
+  font-size: clamp(2.4rem, 5.5vw, 5rem);
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.08;
   color: white;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  max-width: 16ch;
   animation: heroSlideUp 0.7s 0.2s ease both;
 }
 
 .heading-accent {
-  background: linear-gradient(90deg, #7effcc, #d6f2f7);
+  background: linear-gradient(90deg, #7effcc, #a8f0ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+/* ── Subtitle ─────────────────────────────────────────────── */
 .hero-sub {
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.88);
-  max-width: 50ch;
-  line-height: 1.8;
-  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 54ch;
+  line-height: 1.85;
+  margin-bottom: 2.5rem;
   animation: heroSlideUp 0.7s 0.3s ease both;
 }
 
+/* ── Buttons ──────────────────────────────────────────────── */
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 4rem;
   animation: heroSlideUp 0.7s 0.4s ease both;
 }
 
-/* Stats */
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  color: var(--dark-teal);
+  border: 2px solid white;
+  border-radius: 999px;
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.95rem 2rem;
+  text-decoration: none;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.hero-btn-primary:hover {
+  background: var(--light-teal);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.25);
+}
+
+.hero-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.95rem 2rem;
+  text-decoration: none;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+.hero-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+/* ── Stats ────────────────────────────────────────────────── */
 .hero-stats {
   display: flex;
-  gap: 2rem;
+  justify-content: center;
   flex-wrap: wrap;
   animation: heroSlideUp 0.7s 0.5s ease both;
 }
+
 .hero-stat {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 0 2.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
+.hero-stat:last-child { border-right: none; }
+
 .hero-stat strong {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 800;
   color: white;
   line-height: 1;
 }
 .hero-stat span {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 0.25rem;
-}
-
-/* ── Right: image ─────────────────────────────────────────── */
-.hero-right {
-  animation: heroScale 0.9s 0.3s ease both;
-}
-
-.hero-image-wrap {
-  position: relative;
-  border-radius: 24px;
-}
-
-.hero-photo {
-  width: 100%;
-  height: 460px;
-  object-fit: cover;
-  border-radius: 24px;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.3);
-  display: block;
-}
-
-/* Floating badge */
-.hero-float-card {
-  position: absolute;
-  bottom: 20px;
-  right: -16px;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.97);
-  border-radius: 16px;
-  padding: 0.85rem 1.1rem;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-  min-width: 180px;
-  animation: float 6s 0.5s ease-in-out infinite;
-}
-
-.float-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: var(--primary-teal);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.float-text strong {
-  display: block;
-  font-size: 0.84rem;
-  color: var(--dark-text);
-  font-weight: 700;
-  line-height: 1.2;
-}
-.float-text span {
-  font-size: 0.74rem;
-  color: var(--text-light);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 0.3rem;
+  white-space: nowrap;
 }
 
 /* ── Wave ─────────────────────────────────────────────────── */
@@ -240,7 +336,8 @@ const stats = [
   left: 0;
   right: 0;
   line-height: 0;
-  z-index: 3;
+  z-index: 5;
+  pointer-events: none;
 }
 .hero-wave svg {
   width: 100%;
@@ -248,133 +345,76 @@ const stats = [
   display: block;
 }
 
-/* ── Tablet (≤1024px) ─────────────────────────────────────── */
+/* ── Tablet ───────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .home-hero {
-    padding: 4.5rem 0 4rem;
-  }
-
-  .hero-inner {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  /* Image on top, text below */
-  .hero-right { order: -1; }
-
-  .hero-photo {
-    height: 360px;
-  }
-
-  .hero-float-card {
-    right: 12px;
-    bottom: 16px;
-  }
-
-  .hero-heading {
-    font-size: clamp(1.9rem, 5vw, 2.8rem);
-  }
+  .home-hero { min-height: 78vh; }
+  .hero-heading { font-size: clamp(2rem, 5vw, 3.4rem); }
+  :deep(.swiper-pagination) { bottom: 5rem; }
 }
 
-/* ── Mobile (≤640px) ──────────────────────────────────────── */
+/* ── Mobile ───────────────────────────────────────────────── */
 @media (max-width: 640px) {
-  .home-hero {
-    padding: 3rem 0 3.5rem;
+  .home-hero { min-height: 100svh; }
+
+  .slide-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(6, 48, 62, 0.88) 0%,
+      rgba(8, 68, 86, 0.84) 100%
+    );
   }
 
   .hero-inner {
-    gap: 1.75rem;
-  }
-
-  .hero-photo {
-    height: 240px;
-    border-radius: 18px;
-  }
-
-  .hero-image-wrap {
-    border-radius: 18px;
-  }
-
-  /* Keep badge inside image bounds on small screens */
-  .hero-float-card {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    margin-top: 0.75rem;
-    animation: none;
-    border-radius: 14px;
-    min-width: unset;
-    width: 100%;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding-bottom: 7rem;
   }
 
   .hero-heading {
-    font-size: clamp(1.75rem, 7vw, 2.4rem);
-    line-height: 1.15;
+    font-size: clamp(1.9rem, 7.5vw, 2.6rem);
+    line-height: 1.12;
+    max-width: 100%;
   }
 
   .hero-sub {
     font-size: 0.97rem;
+    margin-bottom: 2rem;
   }
 
   .hero-actions {
     flex-direction: column;
+    align-items: stretch;
     gap: 0.75rem;
+    margin-bottom: 3rem;
+    width: 100%;
   }
 
-  .hero-actions .btn {
+  .hero-btn-primary,
+  .hero-btn-outline {
     width: 100%;
     justify-content: center;
   }
 
-  .hero-stats {
-    gap: 1.25rem;
-  }
+  .hero-stat { padding: 0 1.5rem; }
+  .hero-stat strong { font-size: 1.6rem; }
 
-  .hero-stat strong {
-    font-size: 1.35rem;
-  }
+  .hero-wave svg { height: 48px; }
 
-  .hero-stat span {
-    font-size: 0.75rem;
-  }
-
-  /* Shrink wave on mobile */
-  .hero-wave svg {
-    height: 48px;
-  }
+  :deep(.swiper-pagination) { bottom: 4.5rem; }
 }
 
-/* ── Small phones (≤380px) ────────────────────────────────── */
+/* ── Small phones ─────────────────────────────────────────── */
 @media (max-width: 380px) {
-  .hero-photo {
-    height: 200px;
-  }
-
-  .hero-heading {
-    font-size: 1.6rem;
-  }
-
-  .hero-stats {
-    gap: 1rem;
-  }
+  .hero-heading { font-size: 1.75rem; }
+  .hero-stat { padding: 0 1.1rem; }
+  .hero-stat strong { font-size: 1.4rem; }
 }
 
 /* ── Keyframes ────────────────────────────────────────────── */
-@keyframes floatSlow {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50%       { transform: translateY(-10px) rotate(2deg); }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-10px); }
-}
 @keyframes heroSlideUp {
-  from { opacity: 0; transform: translateY(36px); }
+  from { opacity: 0; transform: translateY(32px); }
   to   { opacity: 1; transform: none; }
 }
-@keyframes heroScale {
-  from { opacity: 0; transform: scale(0.94) translateY(20px); }
-  to   { opacity: 1; transform: none; }
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(126, 255, 204, 0.25); }
+  50%       { box-shadow: 0 0 0 8px rgba(126, 255, 204, 0); }
 }
 </style>
