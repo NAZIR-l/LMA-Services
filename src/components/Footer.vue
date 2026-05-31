@@ -5,7 +5,7 @@
       <div class="footer-grid container">
         <!-- Col 1: Brand -->
         <div class="footer-col footer-brand">
-          <img src="/src/assets/logo-lma.jpeg" alt="LMA Services B.V." class="footer-logo" />
+          <img src="https://s3.us-east-1.amazonaws.com/arxgroup.sites/logo-lma.jpeg" alt="LMA Services B.V." class="footer-logo" />
           <p class="brand-tagline">Uw betrouwbare schoonmaakpartner in heel Nederland.</p>
           <div class="footer-contact-info">
             <a href="tel:+31628589077" class="footer-contact-item">

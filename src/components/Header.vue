@@ -18,6 +18,7 @@
           :key="link.to"
           :to="link.to"
           class="nav-link"
+          :exact="link.to === '/'"
         >{{ link.label }}</router-link>
         <router-link to="/offerte-aanvragen" class="nav-link nav-cta">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -199,7 +200,13 @@ onBeforeUnmount(() => {
   transition: background 0.2s, color 0.2s;
 }
 .nav-link:hover { color: var(--primary-teal); background: var(--light-teal); }
-.nav-link.router-link-exact-active { color: var(--primary-teal); background: rgba(31,164,191,0.1); }
+.nav-link.router-link-exact-active,
+.nav-link.router-link-active {
+  color: var(--primary-teal);
+  background: rgba(31, 164, 191, 0.1);
+  border-bottom: 3px solid var(--primary-teal);
+  padding-bottom: calc(0.55rem - 3px);
+}
 
 .nav-cta {
   background: var(--primary-teal) !important;
@@ -210,7 +217,13 @@ onBeforeUnmount(() => {
   box-shadow: 0 4px 16px rgba(31,164,191,0.28);
 }
 .nav-cta:hover { background: var(--dark-teal) !important; }
-.nav-cta.router-link-exact-active { background: var(--dark-teal) !important; color: #fff !important; }
+.nav-cta.router-link-exact-active,
+.nav-cta.router-link-active {
+  background: var(--dark-teal) !important;
+  color: #fff !important;
+  border-bottom: none !important;
+  padding-bottom: 0.65rem !important;
+}
 
 /* ── Hamburger ──────────────────────────────────────────── */
 .hamburger {
@@ -322,7 +335,13 @@ onBeforeUnmount(() => {
   transition: background 0.2s, color 0.2s;
 }
 .mob-link:hover { background: rgba(31, 164, 191, 0.08); color: var(--primary-teal); }
-.mob-link.router-link-exact-active { background: rgba(31, 164, 191, 0.1); color: var(--primary-teal); }
+.mob-link.router-link-exact-active,
+.mob-link.router-link-active {
+  background: rgba(31, 164, 191, 0.1);
+  color: var(--primary-teal);
+  border-left: 3px solid var(--primary-teal);
+  padding-left: calc(1rem - 3px);
+}
 .mob-link-arrow { color: var(--primary-teal); opacity: 0.5; flex-shrink: 0; }
 
 .mob-footer {
