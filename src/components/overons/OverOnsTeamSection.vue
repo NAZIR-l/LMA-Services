@@ -2,6 +2,16 @@
   <section class="team-section section-neu section">
     <div class="container">
       <div class="team-grid">
+        <!-- Team image -->
+        <div class="team-visual" data-aos="fade-right" data-delay="100">
+          <div class="team-image-frame">
+            <img
+              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
+              alt="LMA Services schoonmaakteam aan het werk"
+            />
+          </div>
+        </div>
+
         <div class="team-content" data-aos="fade-left" data-delay="150">
           <p class="eyebrow">Ons team</p>
           <h2 class="section-title">Getraind voor elke uitdaging</h2>
@@ -27,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import teamImg from '../../assets/eilo-employee.png'
+// Team image is loaded via URL in template
 </script>
 
 <style scoped>
@@ -35,7 +45,7 @@ import teamImg from '../../assets/eilo-employee.png'
 
 .team-grid {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 1fr 1.4fr;
   gap: 4rem;
   align-items: center;
 }

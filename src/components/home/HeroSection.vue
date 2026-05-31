@@ -84,19 +84,15 @@ import 'swiper/css/pagination'
 const modules = [Autoplay, EffectFade, Pagination]
 
 const slides = [
- 
-  {
-    img: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=85',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1800&q=85',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=1800&q=85',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=1800&q=85',
-  },
+  // Professional cleaner wiping office desk
+  { img: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=85' },
+  // Cleaner mopping shiny floor in commercial building
+  // Team cleaning large event hall
+  { img: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1800&q=85' },
+  // Deep cleaning / disinfection with spray equipment
+  { img: 'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=1800&q=85' },
+  // Sparkling clean modern office interior
+  { img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85' },
 ]
 
 const stats = [

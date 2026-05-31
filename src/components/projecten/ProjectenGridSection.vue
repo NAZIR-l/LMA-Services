@@ -66,32 +66,44 @@ const projects = [
   {
     id: 1, title: 'Event hal dieptereiniging', category: 'Evenementen', location: 'Utrecht',
     description: 'Volledige dieptereiniging van een grote eventhal na een druk meerdaags festival.',
-    before: B + '1492684223066-81342ee5ff30' + Q, after: B + '1517248135467-4c7edcad34c4' + Q
+    // before: messy event hall / after: spotless cleaned hall
+    before: B + '1531058020387-3be344556be6' + Q,
+    after:  B + '1527515637462-cff94eecc1ac' + Q
   },
   {
     id: 2, title: 'Kantooronderhoud — modern bedrijf', category: 'Kantoor', location: 'Amsterdam',
     description: 'Wekelijks onderhoud van kantoorruimtes en gemeenschappelijke zones voor +200 medewerkers.',
-    before: B + '1497366216548-37526070297c' + Q, after: B + '1497366754035-f200968a6ec5' + Q
+    // before: dusty office / after: gleaming clean office
+    before: B + '1497366216548-37526070297c' + Q,
+    after:  B + '1581578731548-c64695cc6952' + Q
   },
   {
     id: 3, title: 'Gevelbewassing kantoortoren', category: 'Kantoor', location: 'Rotterdam',
     description: 'Technische reiniging van ramen en gevels met professionele apparatuur op hoogte.',
-    before: B + '1486325212027-8081e485255e' + Q, after: B + '1523413555696-0eb2e357bcf2' + Q
+    // before: dirty building exterior / after: clean glass facade
+    before: B + '1486325212027-8081e485255e' + Q,
+    after:  B + '1600585154340-be6161a56a0c' + Q
   },
   {
     id: 4, title: 'Horeca diepe reiniging', category: 'Horeca', location: 'Den Haag',
     description: 'Grondige desinfectie van keuken en eetruimte voor een veilige gastbeleving.',
-    before: B + '1414235077428-338989a2e8c0' + Q, after: B + '1504674900247-0877df9cc836' + Q
+    // before: used restaurant kitchen / after: sanitized professional kitchen
+    before: B + '1414235077428-338989a2e8c0' + Q,
+    after:  B + '1584820927498-cfe5211fd8bf' + Q
   },
   {
     id: 5, title: 'Industrieel onderhoud', category: 'Industrie', location: 'Eindhoven',
     description: 'Regulier onderhoud van productiehallen en logistieke ruimtes bij een groot productiebedrijf.',
-    before: B + '1504307651254-35680f356dfd' + Q, after: B + '1558618666-fcd25c85cd64' + Q
+    // before: industrial floor dirty / after: clean mopped floor
+    before: B + '1504307651254-35680f356dfd' + Q,
+    after:  B + '1558618666-fcd25c85cd64' + Q
   },
   {
     id: 6, title: 'Nareiniging na groot evenement', category: 'Evenementen', location: 'Tilburg',
     description: 'Complexe ruimte van 2.000m² hersteld in recordtijd na een bedrijfsevenement.',
-    before: B + '1531058020387-3be344556be6' + Q, after: B + '1581578731548-c64695cc6952' + Q
+    // before: post-event mess / after: professional cleaner finishing up
+    before: B + '1492684223066-81342ee5ff30' + Q,
+    after:  B + '1581578731548-c64695cc6952' + Q
   }
 ]
 
