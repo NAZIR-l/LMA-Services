@@ -160,7 +160,7 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 82px;
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -174,7 +174,7 @@ onBeforeUnmount(() => {
   text-decoration: none;
 }
 .site-logo {
-  height: 44px;
+  height: 64px;
   width: auto;
   object-fit: contain;
 }
@@ -371,12 +371,12 @@ onBeforeUnmount(() => {
 @media (max-width: 960px) {
   .desktop-nav { display: none; }
   .hamburger   { display: flex; }
-  .header-inner { height: 62px; padding: 0 1.25rem; }
-  .site-logo { height: 38px; }
+  .header-inner { height: 72px; padding: 0 1.25rem; }
+  .site-logo { height: 54px; }
 }
 
 @media (max-width: 480px) {
-  .header-inner { height: 56px; padding: 0 1rem; }
-  .site-logo { height: 34px; }
+  .header-inner { height: 64px; padding: 0 1rem; }
+  .site-logo { height: 46px; }
 }
 </style>
