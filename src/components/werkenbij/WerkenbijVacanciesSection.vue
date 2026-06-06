@@ -7,39 +7,7 @@
         <div class="divider"></div>
       </div>
 
-      <div class="vacancies-list">
-        <article
-          v-for="(v, idx) in vacancies"
-          :key="v.id"
-          class="vacancy-card neu-card"
-          data-aos="fade-up"
-          :data-delay="idx * 100"
-        >
-          <div class="vacancy-top">
-            <div class="vacancy-meta">
-              <span class="vacancy-badge badge badge-teal">{{ v.type }}</span>
-              <span class="vacancy-loc">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                {{ v.location }}
-              </span>
-            </div>
-            <h3>{{ v.title }}</h3>
-            <p>{{ v.description }}</p>
-          </div>
-
-          <div class="vacancy-req">
-            <strong>Vereisten:</strong>
-            <ul class="check-list">
-              <li v-for="req in v.requirements" :key="req">{{ req }}</li>
-            </ul>
-          </div>
-
-          <!-- <router-link to="/contact" class="btn btn-primary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            Solliciteer nu
-          </router-link> -->
-        </article>
-      </div>
+  
 
       <!-- Open application -->
       <div class="open-app neu-card" data-aos="fade-up">
@@ -59,32 +27,7 @@
 </template>
 
 <script setup lang="ts">
-const vacancies = [
-  {
-    id: 1,
-    title: 'Schoonmaker(s) Kantoor',
-    type: 'Parttime / Fulltime',
-    location: 'Veghel en omgeving',
-    description: 'We zoeken ervaren schoonmakers voor ons kantoorschoonmaakteam. Ervaring is een plus, maar niet verplicht!',
-    requirements: ['Betrouwbaar en nauwkeurig', 'Flexibel beschikbaar', 'Basiskennis Nederlands']
-  },
-  {
-    id: 2,
-    title: 'Horeca & Events Medewerker',
-    type: 'Oproepbasis',
-    location: 'Regionaal',
-    description: 'Voor ons horeca en events team zoeken we representatief personeel met een sterke servicementaliteit.',
-    requirements: ['Representatief voorkomen', 'Gastvrij karakter', 'Flexibel inzetbaar']
-  },
-  {
-    id: 3,
-    title: 'Teamleider Reiniging',
-    type: 'Fulltime',
-    location: 'Veghel',
-    description: 'Ervaren leidinggevende gezocht. Je stuurt een team aan en bewaakt de kwaliteit van onze dienstverlening.',
-    requirements: ['5+ jaar schoonmaak ervaring', 'Leidinggevende ervaring', 'Stressbestendig en organisatiegericht']
-  }
-]
+
 </script>
 
 <style scoped>
