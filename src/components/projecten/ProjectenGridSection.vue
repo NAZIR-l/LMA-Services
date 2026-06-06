@@ -56,54 +56,47 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
+// Local assets from src/assets/services/
+import img1 from '../../assets/services/1.png'
+import img2 from '../../assets/services/2.png'
+import img3 from '../../assets/services/3.png'
+import img4 from '../../assets/services/4.png'
+import img5 from '../../assets/services/5.png'
+import img6 from '../../assets/services/6.png'
+
 const selectedCategory = ref('Alles')
 const categories = ['Alles', 'Kantoor', 'Horeca', 'Evenementen', 'Industrie']
-
-const B = 'https://images.unsplash.com/photo-'
-const Q = '?auto=format&fit=crop&w=600&q=80'
 
 const projects = [
   {
     id: 1, title: 'Event hal dieptereiniging', category: 'Evenementen', location: 'Utrecht',
     description: 'Volledige dieptereiniging van een grote eventhal na een druk meerdaags festival.',
-    // before: messy event hall / after: spotless cleaned hall
-    before: B + '1531058020387-3be344556be6' + Q,
-    after:  B + '1527515637462-cff94eecc1ac' + Q
+    before: img1, after: img1
   },
   {
     id: 2, title: 'Kantooronderhoud — modern bedrijf', category: 'Kantoor', location: 'Amsterdam',
     description: 'Wekelijks onderhoud van kantoorruimtes en gemeenschappelijke zones voor +200 medewerkers.',
-    // before: dusty office / after: gleaming clean office
-    before: B + '1497366216548-37526070297c' + Q,
-    after:  B + '1581578731548-c64695cc6952' + Q
+    before: img2, after: img2
   },
   {
     id: 3, title: 'Gevelbewassing kantoortoren', category: 'Kantoor', location: 'Rotterdam',
     description: 'Technische reiniging van ramen en gevels met professionele apparatuur op hoogte.',
-    // before: dirty building exterior / after: clean glass facade
-    before: B + '1486325212027-8081e485255e' + Q,
-    after:  B + '1600585154340-be6161a56a0c' + Q
+    before: img3, after: img3
   },
   {
     id: 4, title: 'Horeca diepe reiniging', category: 'Horeca', location: 'Den Haag',
     description: 'Grondige desinfectie van keuken en eetruimte voor een veilige gastbeleving.',
-    // before: used restaurant kitchen / after: sanitized professional kitchen
-    before: B + '1414235077428-338989a2e8c0' + Q,
-    after:  B + '1584820927498-cfe5211fd8bf' + Q
+    before: img4, after: img4
   },
   {
     id: 5, title: 'Industrieel onderhoud', category: 'Industrie', location: 'Eindhoven',
     description: 'Regulier onderhoud van productiehallen en logistieke ruimtes bij een groot productiebedrijf.',
-    // before: industrial floor dirty / after: clean mopped floor
-    before: B + '1504307651254-35680f356dfd' + Q,
-    after:  B + '1558618666-fcd25c85cd64' + Q
+    before: img5, after: img5
   },
   {
     id: 6, title: 'Nareiniging na groot evenement', category: 'Evenementen', location: 'Tilburg',
     description: 'Complexe ruimte van 2.000m² hersteld in recordtijd na een bedrijfsevenement.',
-    // before: post-event mess / after: professional cleaner finishing up
-    before: B + '1492684223066-81342ee5ff30' + Q,
-    after:  B + '1581578731548-c64695cc6952' + Q
+    before: img6, after: img6
   }
 ]
 
