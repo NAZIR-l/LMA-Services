@@ -110,6 +110,7 @@ const navLinks = [
   { to: '/diensten', label: 'Diensten' },
   { to: '/over-ons', label: 'Over ons' },
   { to: '/werken-bij', label: 'Werken bij' },
+  { to: '/vacatures',  label: 'Vacatures' },
   { to: '/contact', label: 'Contact' },
   { to: '/faq', label: 'FAQ' },
 ]

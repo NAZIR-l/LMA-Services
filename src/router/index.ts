@@ -8,6 +8,7 @@ import OfferteAanvragenPage from '../pages/OfferteAanvragenPage.vue'
 import ContactPage from '../pages/ContactPage.vue'
 import FaqPage from '../pages/FaqPage.vue'
 import PrivacyPage from '../pages/PrivacyPage.vue'
+import VacaturesPage from '../pages/VacaturesPage.vue'
 import VoorwaardenPage from '../pages/VoorwaardenPage.vue'
 
 const routes = [
@@ -16,6 +17,7 @@ const routes = [
   { path: '/diensten', name: 'Diensten', component: DienstenPage },
   { path: '/over-ons', name: 'OverOns', component: OverOnsPage },
   { path: '/werken-bij', name: 'WerkenBij', component: WerkenBijPage },
+  { path: '/vacatures',  name: 'Vacatures',  component: VacaturesPage },
   { path: '/offerte-aanvragen', name: 'OfferteAanvragen', component: OfferteAanvragenPage },
   { path: '/contact', name: 'Contact', component: ContactPage },
   { path: '/faq', name: 'FAQ', component: FaqPage },
