@@ -5,7 +5,7 @@
       <!-- Logo -->
       <router-link to="/" class="brand-link" @click="closeMenu">
         <img
-          src="https://s3.us-east-1.amazonaws.com/arxgroup.sites/logo-lma.jpeg"
+          src="../assets/logo-preview.png"
           alt="LMA Services B.V."
           class="site-logo"
         />

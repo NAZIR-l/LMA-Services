@@ -19,13 +19,15 @@
 
         <div class="legal-card">
           <table class="info-table">
-            <tr><th>Bedrijfsnaam</th><td>LMA Services B.V.</td></tr>
-            <tr><th>Adres</th><td>Costerweg 1, 5466AM, Veghel</td></tr>
-            <tr><th>KVK-nummer</th><td>94772878</td></tr>
-            <tr><th>BTW-nummer</th><td>NL866888986B01</td></tr>
-            <tr><th>E-mail</th><td><a href="mailto:info@lmaschoonmaken.nl">info@lmaschoonmaken.nl</a></td></tr>
-            <tr><th>Telefoon</th><td><a href="tel:+31628589077">+31 6 285 890 77</a></td></tr>
-            <tr><th>Versie</th><td>2026</td></tr>
+            <tbody>
+              <tr><th>Bedrijfsnaam</th><td>LMA Services B.V.</td></tr>
+              <tr><th>Adres</th><td>Costerweg 1, 5466AM, Veghel</td></tr>
+              <tr><th>KVK-nummer</th><td>94772878</td></tr>
+              <tr><th>BTW-nummer</th><td>NL866888986B01</td></tr>
+              <tr><th>E-mail</th><td><a href="mailto:info@lmaschoonmaken.nl">info@lmaschoonmaken.nl</a></td></tr>
+              <tr><th>Telefoon</th><td><a href="tel:+31628589077">+31 6 285 890 77</a></td></tr>
+              <tr><th>Versie</th><td>2026</td></tr>
+            </tbody>
           </table>
         </div>
 

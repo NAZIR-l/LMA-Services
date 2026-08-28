@@ -5,6 +5,7 @@
     <ApproachSection />
     <UspsSection />
     <CtaSection />
+    <TrustedByCarousel />
   </div>
 </template>
 
@@ -14,6 +15,8 @@ import ServicesSection from '../components/home/ServicesSection.vue'
 import ApproachSection from '../components/home/ApproachSection.vue'
 import UspsSection from '../components/home/UspsSection.vue'
 import CtaSection from '../components/home/CtaSection.vue'
+import TrustedByCarousel from '../components/home/TrustedByCarousel.vue'
+
 </script>
 
 <style scoped>
