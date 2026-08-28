@@ -113,7 +113,7 @@ const logos = [
   object-fit: contain;
   display: block;
   /* grayscale + dim by default */
-  filter: grayscale(1) opacity(0.5);
+  /* filter: grayscale(1) opacity(0.5); */
   transition: filter 0.35s ease;
 }
 
